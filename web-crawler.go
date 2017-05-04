@@ -1,5 +1,4 @@
 /*
-
 Concurrent Web Crawler is a light weight configurable crawler with 
 concurrecy enabled. Configrations like 'MaxConcurrencyLimit' will be 
 helpful for controlled concurrency with limited number of subroutines, 
@@ -9,9 +8,7 @@ pages could be saved.
 
 Note: Please be careful while crawling websites and do read the robots.txt 
 before you crawl a website.
-
 */
-
 package web
 
 import(
@@ -25,8 +22,12 @@ import(
 "time"
 )
 
-// Generic Helper Methods
+// returns the current version of the package
+func Version() string {
+	return "0.1.0"
+}
 
+// Generic Helper Methods.
 func logger(message string, value interface{}){
 	log.Println("|| ", message, value)
 }
@@ -90,8 +91,7 @@ func getPageContent(url string) ([]byte, error){
 	return body, nil
 }
 
-// Crawler Object Type Definition
-
+// Crawler Object Type Definition.
 type Crawler struct{
 	MaxConcurrencyLimit int
 	CrawlDelay int
@@ -99,8 +99,7 @@ type Crawler struct{
 	Failures []string
 }
 
-// Crawler Object Methods
-
+// Crawler Object Methods.
 func (config *Crawler) CleanStoragePath(){
 	tpath := strings.TrimSpace(config.StoragePath)
 	if tpath != config.StoragePath{
@@ -108,6 +107,7 @@ func (config *Crawler) CleanStoragePath(){
 	}
 }
 
+// Method for crawling a page and writing it to the file.
 func (config *Crawler) CrawlPage(fqdn string, path string, filename string) error{
 	config.CleanStoragePath() //cleans configured storage path.
 	config_dirpath := filepath.Dir(config.StoragePath)
@@ -132,6 +132,7 @@ func (config *Crawler) CrawlPage(fqdn string, path string, filename string) erro
 	return nil
 }
 
+// Method for crawling multiple pages with subroutines.
 func (config *Crawler) CrawlPages(url_list []string, done chan<- bool) bool{
 	failed_urls := make([]string, len(url_list))
 	for _, url := range url_list{
@@ -154,7 +155,6 @@ func (config *Crawler) CrawlPages(url_list []string, done chan<- bool) bool{
 
 
 // This is the method to initiate the crawling.
-
 func (config *Crawler) Start(url_list []string) bool{
 	concurrency_url_lists := [][]string{url_list}
 	if config.MaxConcurrencyLimit > 0{
