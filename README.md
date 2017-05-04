@@ -2,6 +2,8 @@
 
 Highly configurable crawler with powerful concurrency and better status logging.
 
+[![GoDoc](https://godoc.org/github.com/dineshsprabu/concurrent-web-crawler?status.svg)](https://godoc.org/github.com/dineshsprabu/concurrent-web-crawler)
+
 ## Installation
 
 ```
