@@ -1,3 +1,17 @@
+/*
+
+Concurrent Web Crawler is a light weight configurable crawler with 
+concurrecy enabled. Configrations like 'MaxConcurrencyLimit' will be 
+helpful for controlled concurrency with limited number of subroutines, 
+'CrawlDelay' can be helpful to slow down the crawling rate on subroutine 
+level. 'StoragePath' can be useful for specifying stroage location where 
+pages could be saved.
+
+Note: Please be careful while crawling websites and do read the robots.txt 
+before you crawl a website.
+
+*/
+
 package web
 
 import(
@@ -11,7 +25,7 @@ import(
 "time"
 )
 
-/* Generic Helper Methods */
+// Generic Helper Methods
 
 func logger(message string, value interface{}){
 	log.Println("|| ", message, value)
@@ -51,7 +65,7 @@ func storageInfoFromURL(url_string string) []string{
 	return []string{fileDirPath, fileName}
 }
 
-/* Crawler Helper Methods */
+// Crawler Helper Methods
 
 func writePage(fileName string, content []byte) error{
 	logger("[Processing] Writing to the file : ", fileName)
@@ -76,7 +90,7 @@ func getPageContent(url string) ([]byte, error){
 	return body, nil
 }
 
-/* Crawler Object Type */
+// Crawler Object Type Definition
 
 type Crawler struct{
 	MaxConcurrencyLimit int
@@ -85,7 +99,7 @@ type Crawler struct{
 	Failures []string
 }
 
-/* Crawler Object Methods */
+// Crawler Object Methods
 
 func (config *Crawler) CleanStoragePath(){
 	tpath := strings.TrimSpace(config.StoragePath)
@@ -139,6 +153,7 @@ func (config *Crawler) CrawlPages(url_list []string, done chan<- bool) bool{
 }
 
 
+// This is the method to initiate the crawling.
 
 func (config *Crawler) Start(url_list []string) bool{
 	concurrency_url_lists := [][]string{url_list}
