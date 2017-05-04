@@ -1,4 +1,4 @@
-package crawler
+package web
 
 import(
 "net/http"
@@ -140,7 +140,7 @@ func (config *Crawler) CrawlPages(url_list []string, done chan<- bool) bool{
 
 
 
-func (config *Crawler) Crawl(url_list []string) bool{
+func (config *Crawler) Start(url_list []string) bool{
 	concurrency_url_lists := [][]string{url_list}
 	if config.MaxConcurrencyLimit > 0{
 		concurrency_url_lists = chopStringArray(url_list, config.MaxConcurrencyLimit)

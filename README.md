@@ -21,9 +21,9 @@ import(
 
 func main(){
 
-	// Creating a crawler object with configurations.
+	// Creating a web crawler object with configurations.
 
-	c := Crawler{ 
+	myCrawler := web.Crawler{ 
 			MaxConcurrencyLimit: 2, 
 			StoragePath: "/crawler/storage", 
 			CrawlDelay: 10 //in seconds.
@@ -39,7 +39,7 @@ func main(){
 
 	// Starting the crawler by passing the list of URLs.
 
-	c.Crawl(urls)
+	myCrawler.Start(urls)
 }
 
 ```
