@@ -49,6 +49,7 @@ func chopStringArray(list []string, size_limit int) [][]string{
 	return divided
 }
 
+// Helper method for creating file path by URL.
 func storageInfoFromURL(url_string string) []string{
 	fileName := ""
 	urlObject, _ := url.Parse(url_string)
@@ -66,8 +67,7 @@ func storageInfoFromURL(url_string string) []string{
 	return []string{fileDirPath, fileName}
 }
 
-// Crawler Helper Methods
-
+// Crawler file writing helper methods.
 func writePage(fileName string, content []byte) error{
 	logger("[Processing] Writing to the file : ", fileName)
 	err := ioutil.WriteFile(fileName, content, 0666)
@@ -77,7 +77,7 @@ func writePage(fileName string, content []byte) error{
 	return nil
 }
 
-
+// Crawler page request helper method.
 func getPageContent(url string) ([]byte, error){
 	logger("[Processing] Fetching page content : ", url)
 	resp, err := http.Get(url)
