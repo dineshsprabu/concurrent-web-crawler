@@ -22,9 +22,9 @@ import(
 "time"
 )
 
-// returns the current version of the package
+// Current version.
 func Version() string {
-	return "0.1.0"
+	return "0.1.1"
 }
 
 // Generic Helper Methods.
