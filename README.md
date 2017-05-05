@@ -46,7 +46,7 @@ func main(){
 
 ```
 
-> go run crawler_test.go 
+> go run crawler_sample.go 
 2017/05/04 20:29:59 ||  [Processing] Spawning subroutines :  2
 2017/05/04 20:29:59 ||  [Processing] Fetching page content :  https://archive.org/details/opensource_movies
 2017/05/04 20:29:59 ||  [Processing] Fetching page content :  https://httpbin.org/ip
