@@ -2,9 +2,7 @@
 
 Highly configurable crawler with powerful concurrency and better status logging.
 
-[![GoDoc](https://godoc.org/github.com/dineshsprabu/concurrent-web-crawler?status.svg)](https://godoc.org/github.com/dineshsprabu/concurrent-web-crawler)
-
-[![Build Status](https://travis-ci.org/dineshsprabu/concurrent-web-crawler.svg?branch=master)](https://travis-ci.org/dineshsprabu/concurrent-web-crawler)
+[![GoDoc](https://godoc.org/github.com/dineshsprabu/concurrent-web-crawler?status.svg)](https://godoc.org/github.com/dineshsprabu/concurrent-web-crawler). [![Build Status](https://travis-ci.org/dineshsprabu/concurrent-web-crawler.svg?branch=master)](https://travis-ci.org/dineshsprabu/concurrent-web-crawler)
 
 ## Installation
 
